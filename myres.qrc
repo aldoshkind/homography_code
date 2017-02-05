@@ -1,0 +1,8 @@
+<RCC>
+    <qresource prefix="/">
+        <file>Images/1485226065_BT_folder_file_open.png</file>
+        <file>Images/1485226114_Cancel.png</file>
+        <file>Images/1485226157_BT_save.png</file>
+        <file>Images/1485226390_run.png</file>
+    </qresource>
+</RCC>
