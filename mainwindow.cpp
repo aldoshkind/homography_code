@@ -107,10 +107,14 @@ void MainWindow::on_Result_pushButton_clicked()
     dstQuad[3].y = -(-Fokus_in_Pixel*(b1 * img->width/2 + b2 * -img->height/2 - b3 * Fokus_in_Pixel)/(c1 * img->width/2 + c2 *-img->height/2  - c3 * Fokus_in_Pixel)) - popravkaY;
 
 
+    //вычисляем средний оттенок снимка
+    CvScalar fillval = cvAvg(img);
+
+
     // получаем матрицу преобразования
     cvGetPerspectiveTransform(srcQuad,dstQuad,warp_matrix);
     // преобразование перспективы
-    cvWarpPerspective(img,dst,warp_matrix);
+    cvWarpPerspective(img,dst,warp_matrix, CV_INTER_LINEAR+CV_WARP_FILL_OUTLIERS, fillval);
 
 
     // освобождаем ресурсы
